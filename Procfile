@@ -1,0 +1,1 @@
+web: gunicorn physics.wsgi:application --log-file - --log-level debug

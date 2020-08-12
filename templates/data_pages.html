@@ -1,0 +1,131 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170986365-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-170986365-1');
+</script>
+
+      
+  	<title>{{name}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	
+	
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'sidebar-01/css/style.css' %}">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		
+	        <ul class="list-unstyled components mb-5">
+               {% for category in categories %}
+	          <li class="active">
+	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{category}}</a>
+	            <ul class="collapse list-unstyled" id="homeSubmenu">
+                    {% for dest1 in dests %}
+                    {% ifequal dest1.Subject category %}
+                <li>
+                    <a href= {% url 'data_pages' name=dest1.title %}>{{dest1.title}}</a>
+                </li>
+                {% endifequal %}
+                {% endfor %}
+                
+	            </ul>
+              </li>
+              {% endfor %}
+	        </ul>
+
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	        </div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <h2 class="mb-4">{{name}}</h2>
+        
+
+        {% for dest in dests %}
+        {% ifequal dest.title name %}
+        <p>{{ dest.description | safe}}</p>
+		<h5>By, {{dest.First_Name}}</h5>
+        {% endifequal %}
+        {% endfor %}
+
+        
+		
+		
+		<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ac&ref=tf_til&ad_type=product_link&tracking_id=usjaks-21&marketplace=amazon&region=IN&placement=B086CSGV2N&asins=B086CSGV2N&linkId=966c6b701d48d441a911476ca695f060&show_border=true&link_opens_in_new_window=true&price_color=333333&title_color=0066c0&bg_color=ffffff">
+    </iframe>
+		
+		
+		
+
+      </div>
+		</div>
+		
+		
+		
+		
+
+ <!-- Adsense -->
+
+
+<script data-ad-client="ca-pub-4084487197069823" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+		
+		
+		
+
+    <script src="{% static 'sidebar-01/js/jquery.min.js' %}"></script>
+    <script src="{% static 'sidebar-01/js/popper.js' %}"></script>
+    <script src="{% static 'sidebar-01/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'sidebar-01/js/main.js' %}"></script>
+  </body>
+</html>
